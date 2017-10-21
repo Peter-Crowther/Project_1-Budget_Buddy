@@ -1,0 +1,7 @@
+DROP TABLE tags;
+
+CREATE TABLE tags
+(
+  id SERIAL8 PRIMARY KEY,
+  tag_name VARCHAR(255)
+)
