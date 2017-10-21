@@ -18,4 +18,19 @@ class Transaction
     results = SqlRunner.run(sql, values)
     @id = results.first()["id"].to_i()
   end
+
+  def self.all
+    sql = "SELECT * FROM transactions"
+    values = []
+    results = SqlRunner.run(sql, values)
+    return results.map{|transaction|Transaction.new(transaction)}
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM transactions
+          WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    return Transaction.new(results.first)
+  end
 end
