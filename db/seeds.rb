@@ -36,3 +36,6 @@ transaction2 = Transaction.new({
   "tag_id" => tag2.id
   })
   transaction2.save()
+
+binding.pry
+nil

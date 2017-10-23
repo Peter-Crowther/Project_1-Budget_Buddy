@@ -30,7 +30,7 @@ class Tag
           WHERE id = $1"
     values = [id]
     results = SqlRunner.run(sql, values)
-    return = Tag.new(results.first)
+    return Tag.new(results.first)
   end
 
 
