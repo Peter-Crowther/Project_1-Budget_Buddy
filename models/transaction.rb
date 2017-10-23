@@ -59,7 +59,7 @@ class Transaction
   end
 
   def delete()
-    sql = "DELETE from transactions
+    sql = "DELETE FROM transactions
             WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
