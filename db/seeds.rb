@@ -13,6 +13,11 @@ tag2 = Tag.new({
   })
 tag2.save()
 
+tag3 = Tag.new({
+  "name" => "Clothes"
+  })
+tag3.save()
+
 merchant1 = Merchant.new({
   "name" => "Tesco"
   })

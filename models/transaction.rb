@@ -42,6 +42,7 @@ class Transaction
     results = SqlRunner.run(sql, values)
     return Merchant.new(results.first)
   end
+  
   def tag()
     sql = "SELECT * FROM tags
           WHERE id = $1"
@@ -69,7 +70,7 @@ class Transaction
     sql = "SELECT SUM(amount) FROM transactions"
     values = []
     results = SqlRunner.run(sql, values)
-    return results.first()["sum"].to_i()
+    return results.first["sum"].to_i
   end
 
 

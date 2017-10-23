@@ -6,7 +6,6 @@
     <th>Merchant</th>
     <th>Tag</th>
   </tr>
-
   <tr>
     <% for transaction in @transactions%>
   <td><%= transaction.amount %></td>
@@ -15,9 +14,16 @@
 </tr>
 <% end %>
 </table>
+<br></br>
 
 <table>
+
   <tr>
-    <th>Total</th>
+    <th>Total Spend</th>
   </tr>
+
+  <tr>
+    <td> <%=@total%> </td>
+  </tr>
+
 </table>
