@@ -42,7 +42,7 @@ class Transaction
     results = SqlRunner.run(sql, values)
     return Merchant.new(results.first)
   end
-  
+
   def tag()
     sql = "SELECT * FROM tags
           WHERE id = $1"

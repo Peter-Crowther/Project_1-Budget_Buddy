@@ -7,5 +7,13 @@ require_relative("../models/tag.rb")
 get '/transactions' do
 @transactions = Transaction.all
 @total = Transaction.total
+@merchants = Merchant.all
+@tags = Tag.all
 erb(:"transactions/index")
+end
+
+post '/transactions' do
+  transaction = Transaction.new(params)
+  transaction.save
+  redirect to("/transactions")
 end

@@ -13,11 +13,6 @@ tag2 = Tag.new({
   })
 tag2.save()
 
-tag3 = Tag.new({
-  "name" => "Clothes"
-  })
-tag3.save()
-
 merchant1 = Merchant.new({
   "name" => "Tesco"
   })
@@ -27,6 +22,11 @@ merchant2 = Merchant.new({
   "name" => "Next"
   })
   merchant2.save()
+
+merchant3 = Merchant.new({
+  "name" => "M&S"
+  })
+merchant3.save()
 
 transaction1 = Transaction.new({
   "amount" => 25,
@@ -41,6 +41,14 @@ transaction2 = Transaction.new({
   "tag_id" => tag2.id
   })
   transaction2.save()
+
+transaction3 = Transaction.new({
+  "amount" => 20,
+  "merchant_id" => merchant3.id,
+  "tag_id" => tag2.id
+  })
+  transaction3.save()
+
 
 binding.pry
 nil
