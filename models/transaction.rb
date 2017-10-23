@@ -65,7 +65,14 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
-  
+  def total()
+    sql = "SELECT SUM(amount) FROM transactions"
+    values [@amount]
+    results = SqlRunner.run(sql, values)
+    return results.first()["SUM"].to_f
+
+  end
+
 
 
 end

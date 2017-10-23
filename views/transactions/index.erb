@@ -6,11 +6,18 @@
     <th>Merchant</th>
     <th>Tag</th>
   </tr>
-<tr>
+
+  <tr>
     <% for transaction in @transactions%>
   <td><%= transaction.amount %></td>
   <td><%= transaction.merchant.name%></td>
   <td><%= transaction.tag.name%></td>
 </tr>
 <% end %>
+</table>
+
+<table>
+  <tr>
+    <th>Total</th>
+  </tr>
 </table>
