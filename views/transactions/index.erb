@@ -1,9 +1,10 @@
 <h1>Transactions</h1>
 
-<p>Set up new transaction</p>
+<h2>Set up new transaction</h2>
 <form method="post" action="/transactions">
   <label for="amount">Amount:</label>
   <input id="amount" type="text" name="amount" />
+  <br></br>
   <label>
   Select a merchant:
     <select name="merchant_id">
@@ -12,6 +13,8 @@
       <% end %>
     </select>
   </label>
+  <a href="/merchants"> New Merchant</a>
+  <br></br>
   <label>
   Select a tag:
     <select name="tag_id">
@@ -19,7 +22,9 @@
       <option value="<%= tag.id %>"><%= tag.name %></option>
       <% end %>
     </select>
-  
+    <a href="/tags"> New Tag</a>
+  </label>
+  <br></br>
   <input type="submit" value="create transaction" name="submit"/>
 </form>
 <br></br>
