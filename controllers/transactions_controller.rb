@@ -9,6 +9,7 @@ get '/transactions' do
 @total = Transaction.total
 @merchants = Merchant.all
 @tags = Tag.all
+# @tag_total = Transaction.transactions_by_tag
 erb(:"transactions/index")
 end
 
