@@ -1,14 +1,17 @@
 
-<h2>Create New Merchant</h2>
+
+
+<!--create new merchant or tag if not in current dropdown options but stays on this page due to hidden  -->
+<h2>Create New Merchant/Tag</h2>
 <form method="post" action="/merchants">
   <label for="name">Merchant Name:</label>
   <input id="name" type="text" name="name" />
 <input type="submit" value="create new merchant" name="submit"/>
 <input hidden="true" name="url" value="/transactions/<%= @transaction.id  %>/edit" />
-</form>
+<!-- </form>
 <br></br>
 <h2>Create New Tag</h2>
-<form method="post" action="/tags">
+<form method="post" action="/tags"> -->
   <label for="name">Tag Name:</label>
   <input id="name" type="text" name="name" />
 <input type="submit" value="create new tag" name="submit"/>

@@ -30,6 +30,7 @@ merchant3.save()
 
 transaction1 = Transaction.new({
   "amount" => 25,
+  "month" => "May",
   "merchant_id" => merchant1.id,
   "tag_id" => tag1.id
   })
@@ -37,6 +38,7 @@ transaction1 = Transaction.new({
 
 transaction2 = Transaction.new({
   "amount" => 45,
+  "month" => "October",
   "merchant_id" => merchant2.id,
   "tag_id" => tag2.id
   })
@@ -44,6 +46,7 @@ transaction2 = Transaction.new({
 
 transaction3 = Transaction.new({
   "amount" => 20,
+  "month" => "October",
   "merchant_id" => merchant3.id,
   "tag_id" => tag2.id
   })
