@@ -56,12 +56,19 @@
   </tr>
   <tr>
     <% for transaction in @transactions%>
-    <form action='/transactions/<%= transaction.id %>/delete' method='post'>
   <td>£<%= transaction.amount %></td>
   <td><%= transaction.merchant.name%></td>
   <td><%= transaction.tag.name%></td>
-  <td><button type="submit" value="remove" name="op">Delete</button></td>
-  <td><button type="submit" value="edit" name="op">Edit</button></td>
+  <td>
+    <form action='/transactions/<%= transaction.id %>/delete' method='post'>
+      <button type="submit" value="remove" name="op">Delete</button>
+    </form>
+  </td>
+  <td>
+    <form action='/transactions/<%= transaction.id %>/edit' method="get">
+      <button type="submit" value="edit" name="op">Edit</button>
+    </form>
+  </td>
 </tr>
 <% end %>
 </table>

@@ -10,5 +10,11 @@ end
 post '/merchants' do
   merchant = Merchant.new(params)
   merchant.save
-  redirect to("/transactions")
+
+  if params["url"] == nil
+    redirect to "/transactions"
+  else
+    redirect to params["url"]
+  end
+
 end
