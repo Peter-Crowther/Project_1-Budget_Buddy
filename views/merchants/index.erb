@@ -8,13 +8,18 @@
 <br></br>
 
 
+<h2>Total Spend by Merchant</h2>
 <table>
   <tr>
-    <th>Merchants</th>
+    <% @merchants.each do |merchant| %>
+    <th><%= merchant.name %></th>
+    <%end%>
   </tr>
   <tr>
-    <% for merchant in @merchants%>
-    <td><%= merchant.name%></td>
-    <% end %>
+    <% @merchants.each do |merchant| %>
+    <td><%= Transaction.transactions_by_merchant(merchant.id) %></td>
+    <%end%>
+  </tr>
+
 </tr>
 </table>

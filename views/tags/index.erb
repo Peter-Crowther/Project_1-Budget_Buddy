@@ -5,15 +5,20 @@
   <label for="name">Tag Name:</label>
   <input id="name" type="text" name="name" />
 <input type="submit" value="create new tag" name="submit"/>
+<br></br>
 
-
+<h2>Total Spend by Tag</h2>
 <table>
   <tr>
-    <th>Tag</th>
+    <% @tags.each do |tag| %>
+    <th><%= tag.name %></th>
+    <%end%>
   </tr>
   <tr>
-    <% for tag in @tags%>
-    <td><%= tag.name%></td>
-    <% end %>
+    <% @tags.each do |tag| %>
+    <td><%= Transaction.transactions_by_tag(tag.id) %></td>
+    <%end%>
+  </tr>
+
 </tr>
 </table>

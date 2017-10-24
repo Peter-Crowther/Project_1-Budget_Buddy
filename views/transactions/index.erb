@@ -1,27 +1,11 @@
 <h1>Transactions</h1>
 
-<table>
-  <tr>
-    <th>Tag</th>
-    <th>Total by Tag</th>
-  </tr>
-  <tr>
-    <td>
-      <select name="tag_id">
-      <% for tag in @tags %>
-      <option value="<%= tag.id %>"><%= tag.name %></option>
-      <% end %>
-    </select>
-    </td>
 
-  </tr>
-
-</table>
-
-<!-- Set up new transaction form -->
+<!-- Set up new transaction form  -->
 <h2>Set up new transaction</h2>
 <form method="post" action="/transactions">
   <label for="amount">Amount:</label>
+  <!-- not nil -->
   <input id="amount" type="text" name="amount" />
   <br></br>
   <label>
@@ -65,6 +49,7 @@
 
 <!-- All time all transactions table -->
 <table>
+  <form action='#' method='post'>
   <tr>
     <th>Amount</th>
     <th>Merchant</th>
@@ -75,6 +60,8 @@
   <td>£<%= transaction.amount %></td>
   <td><%= transaction.merchant.name%></td>
   <td><%= transaction.tag.name%></td>
+  <td><button type="submit" value="remove" name="op">Delete</button></td>
+  <td><button type="submit" value="edit" name="op">Edit</button></td>
 </tr>
 <% end %>
 </table>
