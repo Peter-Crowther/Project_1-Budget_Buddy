@@ -8,5 +8,6 @@ require_relative("./controllers/merchants_controller.rb")
 get '/' do
   @transactions = Transaction.all
   @total = Transaction.total
+  @budget = 400
   erb(:index)
 end

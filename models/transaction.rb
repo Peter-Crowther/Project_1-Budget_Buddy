@@ -74,6 +74,14 @@ class Transaction
     return results.first["sum"].to_i
   end
 
+  def self.total_current_month()
+    sql = "SELECT SUM(amount) FROM transactions
+          WHERE MONTH(month) = MONTH(CURRENT_DATE)"
+    values = [@month]
+    results = SqlRunner.run(sql, values)
+    return results.first["sum"].to_i
+  end
+
   def self.transactions_by_tag(id)
     sql = "SELECT SUM(amount) FROM transactions
             WHERE tag_id = $1"
@@ -90,7 +98,7 @@ class Transaction
     return results.first["sum"].to_i
   end
 
-
+  
 
 
 end
