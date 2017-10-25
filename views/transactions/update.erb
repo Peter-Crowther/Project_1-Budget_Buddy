@@ -1,5 +1,37 @@
+<!--Edit transation form  -->
 
+<h2>Edit Selected Transaction</h2>
+<form method="post" action="/transactions/<%= @transaction.id%>/edit">
+  <label for="amount">Amount:</label>
+  <!-- not nil? -->
+  <input id="amount" type="text" value = "<%=@transaction.amount%>" name="amount" />
+  <br></br>
+  <label>
+<!-- <form method="post" action="/transactions"> -->
+  <label for="month">Month:</label>
+  <input id="month" type="text" value = "<%=@transaction.month%>"name="month" />
+  <br></br>
 
+  <label>
+  Re-select a merchant:
+    <select name="merchant_id">
+      <% for merchant in @merchants %>
+      <option value="<%= merchant.id %>"><%= merchant.name %></option>
+      <% end %>
+    </select>
+  </label>
+  <br></br>
+  <label>
+  Re-select a tag:
+    <select name="tag_id">
+      <% for tag in @tags %>
+      <option value="<%= tag.id %>"><%= tag.name %></option>
+      <% end %>
+    </select>
+  </label>
+  <br></br>
+  <input type="submit" value="update transaction" name="submit"/>
+</form>
 
 <!--create new merchant or tag if not in current dropdown options but stays on this page due to hidden  -->
 <h2>Create New Merchant/Tag</h2>
@@ -8,10 +40,6 @@
   <input id="name" type="text" name="name" />
 <input type="submit" value="create new merchant" name="submit"/>
 <input hidden="true" name="url" value="/transactions/<%= @transaction.id  %>/edit" />
-<!-- </form>
-<br></br>
-<h2>Create New Tag</h2>
-<form method="post" action="/tags"> -->
   <label for="name">Tag Name:</label>
   <input id="name" type="text" name="name" />
 <input type="submit" value="create new tag" name="submit"/>

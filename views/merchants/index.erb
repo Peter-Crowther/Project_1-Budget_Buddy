@@ -1,5 +1,7 @@
 <h1>Merchants</h1>
 
+<!-- create new merchant form -->
+
 <h2>Create New Merchant</h2>
 <form method="post" action="/merchants">
   <label for="name">Merchant Name:</label>
@@ -10,6 +12,7 @@
 <br></br>
 
 
+<!-- total spent at each merchant table -->
 <h2>Total Spend by Merchant</h2>
 <table>
   <tr>
@@ -19,7 +22,7 @@
   </tr>
   <tr>
     <% @merchants.each do |merchant| %>
-    <td><%= Transaction.transactions_by_merchant(merchant.id) %></td>
+    <td>£<%= Transaction.transactions_by_merchant(merchant.id) %></td>
     <%end%>
   </tr>
 

@@ -13,14 +13,7 @@
   <label for="month">Month:</label>
   <input id="month" type="text" name="month" />
   <br></br>
-  <label>
-  Select a merchant:
-    <select name="merchant_id">
-      <% for merchant in @merchants %>
-      <option value="<%= merchant.id %>"><%= merchant.name %></option>
-      <% end %>
-    </select>
-  </label>
+  
   <label>
   Select a merchant:
     <select name="merchant_id">

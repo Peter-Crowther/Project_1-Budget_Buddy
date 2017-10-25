@@ -52,11 +52,11 @@ class Transaction
     return Tag.new(results.first)
   end
 
-  def self.update(amount, merchant_id, tag_id, id)
+  def update()
     sql = "UPDATE transactions
           SET ( amount, month, merchant_id, tag_id) = ($1, $2, $3, $4)
-          WHERE id = $4"
-    values = [amount, merchant_id, tag_id, id]
+          WHERE id = $5"
+    values = [@amount, @month, @merchant_id, @tag_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -99,6 +99,5 @@ class Transaction
   end
 
   
-
 
 end

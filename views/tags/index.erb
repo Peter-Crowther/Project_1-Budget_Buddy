@@ -1,5 +1,7 @@
 <h1>Tags</h1>
 
+
+<!--create new tag form  -->
 <h2>Create New Tag</h2>
 <form method="post" action="/tags">
   <label for="name">Tag Name:</label>
@@ -7,6 +9,8 @@
 <input type="submit" value="create new tag" name="submit"/>
 <br></br>
 
+
+<!--Total spent on each tag table  -->
 <h2>Total Spend by Tag</h2>
 <table>
   <tr>
@@ -16,9 +20,8 @@
   </tr>
   <tr>
     <% @tags.each do |tag| %>
-    <td><%= Transaction.transactions_by_tag(tag.id) %></td>
+    <td>£<%= Transaction.transactions_by_tag(tag.id) %></td>
     <%end%>
   </tr>
-
 </tr>
 </table>

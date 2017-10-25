@@ -10,8 +10,8 @@ erb(:"tags/index")
 end
 
 post '/tags' do
-  merchant = Tag.new(params)
-  merchant.save
+  tag = Tag.new(params)
+  tag.save
 
   if params["url"] == nil
     redirect to "/transactions"

@@ -24,11 +24,14 @@ post '/transactions/:id/delete' do
 end
 
 get '/transactions/:id/edit' do
+  @merchants = Merchant.all
+  @tags = Tag.all
   @transaction = Transaction.find(params["id"])
   erb(:"transactions/update")
 end
 
-post '/transactions/:id' do
-  Transacton.update(params[:id])
+post '/transactions/:id/edit' do
+  @transaction = Transaction.new(params)
+  @transaction.update()
   redirect to("/transactions")
 end
