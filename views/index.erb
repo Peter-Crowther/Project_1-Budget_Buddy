@@ -1,8 +1,15 @@
-<h1> Budget Buddy :) </h1>
-<h2>Welcome to your personal budgeting app</h2>
-<p>Your monthly budget is £<%=@budget%></p>
-<p>Your current total spend is £<%=@total%></p>
-<p>Your remaining budget is £<%=@remaining_budget%></p>
+<div>
+  <h2>Welcome to your personal budgeting app</h2>
+</div>
+
+<div class="front_page">
+    <p>Your budget is £<%=@budget%></p>
+    <p>Your current total spend is £<%=@total%></p>
+    <p>Your remaining budget is £<%=@remaining_budget%></p>
+</div>
+
+<div class="warning">
 <% if @remaining_budget <= 50%>
-   <%="Attention!! You are close to your budget limit"%>
+   <%="Attention!! Your Budget Is In Peril!!"%>
 <%end%>
+</div>

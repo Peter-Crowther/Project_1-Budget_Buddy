@@ -6,13 +6,13 @@
 <form method="post" action="/tags">
   <label for="name">Tag Name:</label>
   <input id="name" type="text" name="name" />
-<input type="submit" value="create new tag" name="submit"/>
+<input class="btn" type="submit" value="create new tag" name="submit"/>
 <br></br>
 
 
 <!--Total spent on each tag table  -->
 <h2>Total Spend by Tag</h2>
-<table>
+<table class="table">
   <tr>
     <% @tags.each do |tag| %>
     <th><%= tag.name %></th>

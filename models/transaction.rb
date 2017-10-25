@@ -2,21 +2,20 @@ require_relative("../db/sql_runner.rb")
 
 class Transaction
   attr_reader(:id)
-  attr_accessor(:amount, :month, :merchant_id, :tag_id)
+  attr_accessor(:amount, :merchant_id, :tag_id)
 
   def initialize(options)
     @id = options["id"].to_i()
     @amount = options["amount"].to_i()
-    @month = options["month"]
     @merchant_id = options["merchant_id"].to_i()
     @tag_id = options["tag_id"].to_i()
   end
 
   def save()
-    sql = "INSERT INTO transactions (amount, month, merchant_id, tag_id)
-    VALUES ( $1, $2, $3, $4)
+    sql = "INSERT INTO transactions (amount, merchant_id, tag_id)
+    VALUES ( $1, $2, $3)
     RETURNING id"
-    values = [@amount, @month, @merchant_id, @tag_id]
+    values = [@amount, @merchant_id, @tag_id]
     results = SqlRunner.run(sql, values)
     @id = results.first()["id"].to_i()
   end
@@ -54,9 +53,9 @@ class Transaction
 
   def update()
     sql = "UPDATE transactions
-          SET ( amount, month, merchant_id, tag_id) = ($1, $2, $3, $4)
-          WHERE id = $5"
-    values = [@amount, @month, @merchant_id, @tag_id, @id]
+          SET ( amount, merchant_id, tag_id) = ($1, $2, $3)
+          WHERE id = $4"
+    values = [@amount, @merchant_id, @tag_id, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -74,13 +73,6 @@ class Transaction
     return results.first["sum"].to_i
   end
 
-  def self.total_current_month()
-    sql = "SELECT SUM(amount) FROM transactions
-          WHERE MONTH(month) = MONTH(CURRENT_DATE)"
-    values = [@month]
-    results = SqlRunner.run(sql, values)
-    return results.first["sum"].to_i
-  end
 
   def self.transactions_by_tag(id)
     sql = "SELECT SUM(amount) FROM transactions

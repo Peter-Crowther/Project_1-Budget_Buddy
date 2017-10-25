@@ -3,13 +3,9 @@
 <h2>Edit Selected Transaction</h2>
 <form method="post" action="/transactions/<%= @transaction.id%>/edit">
   <label for="amount">Amount:</label>
-  <!-- not nil? -->
   <input id="amount" type="text" value = "<%=@transaction.amount%>" name="amount" />
   <br></br>
-  <label>
-<!-- <form method="post" action="/transactions"> -->
-  <label for="month">Month:</label>
-  <input id="month" type="text" value = "<%=@transaction.month%>"name="month" />
+  
   <br></br>
 
   <label>
@@ -30,7 +26,7 @@
     </select>
   </label>
   <br></br>
-  <input type="submit" value="update transaction" name="submit"/>
+  <input class="btn" type="submit" value="update transaction" name="submit"/>
 </form>
 
 <!--create new merchant or tag if not in current dropdown options but stays on this page due to hidden  -->
@@ -38,11 +34,11 @@
 <form method="post" action="/merchants">
   <label for="name">Merchant Name:</label>
   <input id="name" type="text" name="name" />
-<input type="submit" value="create new merchant" name="submit"/>
+<input class="btn" type="submit" value="create new merchant" name="submit"/>
 <input hidden="true" name="url" value="/transactions/<%= @transaction.id  %>/edit" />
   <label for="name">Tag Name:</label>
   <input id="name" type="text" name="name" />
-<input type="submit" value="create new tag" name="submit"/>
+<input class="btn" type="submit" value="create new tag" name="submit"/>
 <input hidden="true" name="url" value="/transactions/<%= @transaction.id  %>/edit" />
 </form>
 <br></br>

@@ -9,11 +9,6 @@
   <!-- not nil -->
   <input id="amount" type="text" name="amount" />
   <br></br>
-  <label>
-<form method="post" action="/transactions">
-  <label for="month">Month:</label>
-  <input id="month" type="text" name="month" />
-  <br></br>
 
   <label>
   Select a merchant:
@@ -35,7 +30,7 @@
     <a href="/tags"> New Tag</a>
   </label>
   <br></br>
-  <input type="submit" value="create transaction" name="submit"/>
+  <input class="btn" type="submit" value="create transaction" name="submit"/>
 </form>
 </div>
 <br></br>
@@ -43,7 +38,7 @@
 
 
 <!--All time total spend table  -->
-<table>
+<table class="table">
   <tr>
     <th>Total Spend</th>
   </tr>
@@ -56,27 +51,25 @@
 <br></br>
 
 <!-- All time all transactions table -->
-<table>
+<table class="table">
   <tr>
     <th>Amount</th>
-    <th>Month</th>
     <th>Merchant</th>
     <th>Tag</th>
   </tr>
   <tr>
     <% for transaction in @transactions%>
   <td>£<%= transaction.amount %></td>
-  <td><%= transaction.month %></td>
   <td><%= transaction.merchant.name%></td>
   <td><%= transaction.tag.name%></td>
   <td>
     <form action='/transactions/<%= transaction.id %>/delete' method='post'>
-      <button type="submit" value="remove" name="op">Delete</button>
+      <button class="btn" type="submit" value="remove" name="op">Delete</button>
     </form>
   </td>
   <td>
     <form action='/transactions/<%= transaction.id %>/edit' method="get">
-      <button type="submit" value="edit" name="op">Edit</button>
+      <button class="btn" type="submit" value="edit" name="op">Edit</button>
     </form>
   </td>
 </tr>
