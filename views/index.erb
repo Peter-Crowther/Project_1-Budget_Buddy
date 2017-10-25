@@ -2,4 +2,7 @@
 <h2>Welcome to your personal budgeting app</h2>
 <p>Your monthly budget is £<%=@budget%></p>
 <p>Your current total spend is £<%=@total%></p>
-<p>Your remaining budget is £<%=@budget - @total%></p>
+<p>Your remaining budget is £<%=@remaining_budget%></p>
+<% if @remaining_budget <= 50%>
+   <%="Attention!! You are close to your budget limit"%>
+<%end%>

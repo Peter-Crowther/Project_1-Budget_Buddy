@@ -98,6 +98,5 @@ class Transaction
     return results.first["sum"].to_i
   end
 
-  
 
 end

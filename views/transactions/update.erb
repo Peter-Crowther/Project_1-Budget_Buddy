@@ -16,7 +16,7 @@
   Re-select a merchant:
     <select name="merchant_id">
       <% for merchant in @merchants %>
-      <option value="<%= merchant.id %>"><%= merchant.name %></option>
+      <option <%= "selected" if merchant.id == @transaction.merchant_id %> value="<%= merchant.id %>"> <%= merchant.name %></option>
       <% end %>
     </select>
   </label>
@@ -25,7 +25,7 @@
   Re-select a tag:
     <select name="tag_id">
       <% for tag in @tags %>
-      <option value="<%= tag.id %>"><%= tag.name %></option>
+      <option <%= "selected" if tag.id == @transaction.tag_id %> value="<%= tag.id %>"> <%= tag.name %></option>
       <% end %>
     </select>
   </label>

@@ -9,5 +9,6 @@ get '/' do
   @transactions = Transaction.all
   @total = Transaction.total
   @budget = 400
+  @remaining_budget = @budget - @total
   erb(:index)
 end
