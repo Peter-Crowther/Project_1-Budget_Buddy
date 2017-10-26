@@ -5,11 +5,11 @@
   <label for="amount">Amount:</label>
   <input id="amount" type="text" value = "<%=@transaction.amount%>" name="amount" />
   <br></br>
-  
+
   <br></br>
 
   <label>
-  Re-select a merchant:
+  Select a merchant:
     <select name="merchant_id">
       <% for merchant in @merchants %>
       <option <%= "selected" if merchant.id == @transaction.merchant_id %> value="<%= merchant.id %>"> <%= merchant.name %></option>
@@ -18,7 +18,7 @@
   </label>
   <br></br>
   <label>
-  Re-select a tag:
+  Select a tag:
     <select name="tag_id">
       <% for tag in @tags %>
       <option <%= "selected" if tag.id == @transaction.tag_id %> value="<%= tag.id %>"> <%= tag.name %></option>
@@ -36,6 +36,8 @@
   <input id="name" type="text" name="name" />
 <input class="btn" type="submit" value="create new merchant" name="submit"/>
 <input hidden="true" name="url" value="/transactions/<%= @transaction.id  %>/edit" />
+</form>
+<form method="post" action="/tags">
   <label for="name">Tag Name:</label>
   <input id="name" type="text" name="name" />
 <input class="btn" type="submit" value="create new tag" name="submit"/>
